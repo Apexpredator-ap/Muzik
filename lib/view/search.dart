@@ -17,6 +17,7 @@ class _SearchPageState extends State<SearchPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextField(
