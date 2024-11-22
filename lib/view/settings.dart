@@ -37,80 +37,78 @@ class _ProfilePageState extends State<ProfilePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return StatefulBuilder(
-            builder: (context, setState) {
-              return AlertDialog(
-                title: Text("Select Profile Image"),
-                content: Container(
-                  height: 200,
-                  width: 300,
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    children: List.generate(5, (index) {
-                      String imagePath = 'assets/images/avt${index + 1}.png';
-                      bool isSelected = imagePath == _selectedAvatar;
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _selectedAvatar = imagePath;
-                          });
-                        },
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                imagePath,
-                                errorBuilder: (context, error, stackTrace) {
-                                  print('Error loading image: $imagePath');
-                                  return Icon(Icons.error);
-                                },
+        return StatefulBuilder(builder: (context, setState) {
+          return AlertDialog(
+            title: Text("Select Profile Image"),
+            content: Container(
+              height: 200,
+              width: 300,
+              child: GridView.count(
+                crossAxisCount: 3,
+                children: List.generate(5, (index) {
+                  String imagePath = 'assets/images/avt${index + 1}.png';
+                  bool isSelected = imagePath == _selectedAvatar;
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedAvatar = imagePath;
+                      });
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Image.asset(
+                            imagePath,
+                            errorBuilder: (context, error, stackTrace) {
+                              print('Error loading image: $imagePath');
+                              return Icon(Icons.error);
+                            },
+                          ),
+                        ),
+                        if (isSelected)
+                          Positioned(
+                            right: 0,
+                            bottom: 0,
+                            child: Container(
+                              padding: EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.check,
+                                color: Colors.white,
+                                size: 16,
                               ),
                             ),
-                            if (isSelected)
-                              Positioned(
-                                right: 0,
-                                bottom: 0,
-                                child: Container(
-                                  padding: EdgeInsets.all(2),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.white,
-                                    size: 16,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: Text("Cancel"),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      if (_selectedAvatar != null) {
-                        _saveUserData();
-                        // Update the main widget tree state
-                        this.setState(() {});
-                        Navigator.of(context).pop();
-                      }
-                    },
-                    child: Text("OK"),
-                  ),
-                ],
-              );
-            }
-        );
+                          ),
+                      ],
+                    ),
+                  );
+                }),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  if (_selectedAvatar != null) {
+                    _saveUserData();
+                    // Update the main widget tree state
+                    this.setState(() {});
+                    Navigator.of(context).pop();
+                  }
+                },
+                child: Text("OK"),
+              ),
+            ],
+          );
+        });
       },
     );
   }

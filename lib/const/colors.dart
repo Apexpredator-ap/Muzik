@@ -40,4 +40,3 @@ class AppColors {
   static const Color kTealA = Colors.tealAccent;
   static const Color kBrown = Colors.brown;
 }
-

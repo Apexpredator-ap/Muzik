@@ -17,13 +17,13 @@ class _SearchPageState extends State<SearchPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search...',
-                  hintStyle:GoogleFonts.amaranth(textStyle: TextStyle(color: Colors.grey)),
+                  hintStyle: GoogleFonts.amaranth(
+                      textStyle: TextStyle(color: Colors.grey)),
                   prefixIcon: Icon(Icons.search, color: Colors.grey),
                   filled: true,
                   fillColor: Colors.grey[900],
@@ -56,8 +56,10 @@ class _SearchPageState extends State<SearchPage> {
                       Text(
                         'Search to get results',
                         style: GoogleFonts.amaranth(
-                          textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                        ),                       ),
+                          textStyle: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ],
                   ),
                 ),

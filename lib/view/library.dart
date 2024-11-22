@@ -12,7 +12,7 @@ class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.blue, // Dark background color
+      backgroundColor: Colors.blue, // Dark background color
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -20,21 +20,20 @@ class _LibraryPageState extends State<LibraryPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Text(
-                  'Liked Songs',
-
-                            style: GoogleFonts.amaranth(
-                textStyle: TextStyle( color: Colors.white,fontSize: 24, fontWeight: FontWeight.bold),
-                            )
-
-
-                ),
+                child: Text('Liked Songs',
+                    style: GoogleFonts.amaranth(
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold),
+                    )),
               ),
               SizedBox(height: 16),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
-                  hintStyle: GoogleFonts.amaranth(textStyle: TextStyle(color: Colors.grey)),
+                  hintStyle: GoogleFonts.amaranth(
+                      textStyle: TextStyle(color: Colors.grey)),
                   prefixIcon: Icon(Icons.search, color: Colors.grey),
                   filled: true,
                   fillColor: Color(0xFF242424), // Darker grey for search bar

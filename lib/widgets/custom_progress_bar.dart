@@ -18,7 +18,10 @@ class LiquidPainter extends CustomPainter {
 
     // Defining coordinate points. The wave starts from the bottom and ends at the top as the value changes.
     double pointX = 0;
-    double pointY = diameter - ((diameter + 10) * (value / maxValue)); // 10 is an extra offset added to fill the circle completely
+    double pointY = diameter -
+        ((diameter + 10) *
+            (value /
+                maxValue)); // 10 is an extra offset added to fill the circle completely
 
     Path path = Path();
     path.moveTo(pointX, pointY);
@@ -51,23 +54,27 @@ class LiquidPainter extends CustomPainter {
 
     Paint paint = Paint()
       ..shader = const SweepGradient(
-          colors: [
-            Color(0xffFF7A01),
-            Color(0xffFF0069),
-            Color(0xff7639FB),
-          ],
-          startAngle: pi / 2,
-          endAngle: 5 * pi / 2,
-          tileMode: TileMode.clamp,
-          stops: [
-            0.25,
-            0.35,
-            0.5,
-          ]).createShader(Rect.fromCircle(center: Offset(diameter, diameter), radius: radius))
+              colors: [
+                Color(0xffFF7A01),
+                Color(0xffFF0069),
+                Color(0xff7639FB),
+              ],
+              startAngle: pi / 2,
+              endAngle: 5 * pi / 2,
+              tileMode: TileMode.clamp,
+              stops: [
+                0.25,
+                0.35,
+                0.5,
+              ])
+          .createShader(Rect.fromCircle(
+              center: Offset(diameter, diameter), radius: radius))
       ..style = PaintingStyle.fill;
 
     // Clipping rectangular-shaped path to Oval.
-    Path circleClip = Path()..addOval(Rect.fromCenter(center: Offset(radius, radius), width: diameter, height: diameter));
+    Path circleClip = Path()
+      ..addOval(Rect.fromCenter(
+          center: Offset(radius, radius), width: diameter, height: diameter));
     canvas.clipPath(circleClip, doAntiAlias: true);
     canvas.drawPath(path, paint);
   }

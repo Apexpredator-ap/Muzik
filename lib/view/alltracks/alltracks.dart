@@ -48,33 +48,35 @@ class _AllTracksPageState extends State<AllTracksPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context, _songs.length); // Return the actual song count
+            Navigator.pop(
+                context, _songs.length); // Return the actual song count
           },
         ),
       ),
       body: _songs.isEmpty
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
-        itemCount: _songs.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-            child: ListTile(
-              title: Text(
-                _songs[index].title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(
-                _songs[index].artist ?? "Unknown Artist",
-                style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-              ),
-              onTap: () {
-                // Handle song tap (e.g., play music)
+              itemCount: _songs.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  child: ListTile(
+                    title: Text(
+                      _songs[index].title,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      _songs[index].artist ?? "Unknown Artist",
+                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                    ),
+                    onTap: () {
+                      // Handle song tap (e.g., play music)
+                    },
+                  ),
+                );
               },
             ),
-          );
-        },
-      ),
     );
   }
 }

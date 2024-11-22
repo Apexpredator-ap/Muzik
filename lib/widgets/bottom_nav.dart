@@ -7,8 +7,6 @@ import '../view/search.dart';
 import '../view/settings.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-
-
   @override
   _CustomBottomNavigationBarState createState() =>
       _CustomBottomNavigationBarState();
@@ -31,8 +29,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   void initState() {
-    home = HomePage();   // Pass userId to HomePage
-    search = SearchPage();    // Modify these pages as needed if they require userId
+    home = HomePage(); // Pass userId to HomePage
+    search =
+        SearchPage(); // Modify these pages as needed if they require userId
     library = LibraryPage();
     profile = ProfilePage();
     pages = [home, search, library, profile];

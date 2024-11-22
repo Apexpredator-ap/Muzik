@@ -7,7 +7,8 @@ class CustomCard extends StatelessWidget {
   final Color cardColor;
   final String cardText;
 
-  const CustomCard({super.key, required this.cardColor, required this.cardText});
+  const CustomCard(
+      {super.key, required this.cardColor, required this.cardText});
 
   @override
   Widget build(BuildContext context) {

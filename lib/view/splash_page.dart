@@ -35,8 +35,8 @@ class _SplashPageState extends State<SplashPage>
     });
 
     _controller?.forward().then((_) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => LoginPage()));
     });
   }
 

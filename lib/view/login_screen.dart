@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _checkLoginStatus();  // Check if the user is already logged in
+    _checkLoginStatus(); // Check if the user is already logged in
   }
 
   // Check if the user is already logged in
@@ -76,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
         decoration: BoxDecoration(
           // Adding a gradient background
           gradient: LinearGradient(
-            colors: [Colors.blue, Colors.purple], // Gradient from blue to purple
+            colors: [
+              Colors.blue,
+              Colors.purple
+            ], // Gradient from blue to purple
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
